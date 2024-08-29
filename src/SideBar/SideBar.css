@@ -1,0 +1,102 @@
+/* RIGHT SIDE-BAR */
+
+.right-sidebar {
+    grid-column: 3;
+    background-color: #E2E8F0;
+    margin: 10px;
+    display: grid;
+    grid-template-rows: 0.62fr 6fr 50px;
+    gap: 10px;
+}
+
+.current-task {
+    grid-row: 1;
+    width: 100%;
+    background-color: #B9E0F3;
+}
+
+.current-task > h4 {
+    text-align: center;
+}
+
+.task-details {
+    grid-row: 2;
+    justify-self: center;
+    opacity: 0;
+    background-color: #FFFFFF;
+    width: 93%;
+    height: 100%;
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.notes-container,
+.subtask-container,
+.options-container {
+    font-weight: 400;
+    font-size: 0.95em;
+    letter-spacing: -0.05ch;
+    padding: 10px;
+    height: 33%;
+    width: 95%;
+    box-shadow: 3px 3px rgb(225, 226, 226);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    display: inline;
+}
+
+textarea {
+    border: 1px solid rgb(190, 188, 188, 0);
+    resize: none;
+}
+
+textarea:hover {
+    border: 1px solid rgb(190, 188, 188);
+}
+
+.add-subtask {
+    cursor: pointer;
+}
+
+.subtask-tab {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.link-2 {
+    cursor: pointer;
+    height: 20px;
+}
+
+.subtask-tab > input {
+    margin-top: 5px;
+    margin-left: 15px;
+    border: none;
+    cursor: default;
+}
+
+/* .complete-subtask {
+    grid-column: 2;
+    grid-row: 1;
+    height: 20px;
+    margin-top: 4px;
+    cursor: pointer;
+    background-color: #1A92D3;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.1;
+}
+
+.complete-subtask:hover {
+    background-color: #1f88c1;
+    opacity: 1;
+} */
