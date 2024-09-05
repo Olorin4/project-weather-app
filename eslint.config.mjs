@@ -1,8 +1,13 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-
+import globals from 'globals';
+import pluginJs from '@eslint/js';
 
 export default [
-  {languageOptions: { globals: globals.browser }},
-  pluginJs.configs.recommended,
+    { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
+    pluginJs.configs.recommended,
+    {
+        rules: {
+            'no-unused-vars': 'error',
+            'arrow-body-style': ['error', 'always'],
+        },
+    },
 ];

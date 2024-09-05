@@ -1,6 +1,8 @@
 .gitignore
 .vscode
 .prettierrc
+.prettie.config.mjs
+eslint.config.mjs
 
 # Logs
 logs

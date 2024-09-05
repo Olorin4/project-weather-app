@@ -1,15 +1,26 @@
-import "./normalize.css";
-import "./styles.css";
-import { fetchData } from "./api-access";
+import './normalize.css';
+import './styles.css';
+import { fetchData } from './api-access';
+
+function sayHi(name) {
+    let age = 10;
+}
+
+let things = ['cool', 'double!!!'];
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchData();
 });
 
+let hello = 'hello';
+
+let helloFunction = () => console.log('hello');
+
+helloFunction();
 
 // TO DO:
 // - Fetch weather data from Visual Crossing API.
-// - Add ability to search for a specific location and toggle displaying 
+// - Add ability to search for a specific location and toggle displaying
 // - the data in Fahrenheit or Celsius.
 // - Process the JSON data from the API and return an object the data required by the app.
 // - Change the look of the page based on the data (maybe use Giphy API).
