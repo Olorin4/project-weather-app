@@ -1,22 +1,15 @@
-import './normalize.css';
-import './styles.css';
-import { fetchData } from './api-access';
+import "./normalize.css";
+import "./styles.css";
+import { fetchData } from "./api-access";
 
-function sayHi(name) {
-    let age = 10;
-}
+let eslintTest = () => {
+    return console.log("hello");
+};
+eslintTest();
 
-let things = ['cool', 'double!!!'];
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     fetchData();
 });
-
-let hello = 'hello';
-
-let helloFunction = () => console.log('hello');
-
-helloFunction();
 
 // TO DO:
 // - Fetch weather data from Visual Crossing API.
