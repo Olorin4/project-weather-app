@@ -1,14 +1,13 @@
 import "./normalize.css";
 import "./styles.css";
-import { fetchData } from "./api-access";
+import { fetchWeather } from "./api-access";
 
 async function getLocation() {
     const searchInput = document.querySelector(".search-bar");
     searchInput.addEventListener("change", async function () {
         const location = searchInput.value.trim();
-        if (location) {
-            await fetchData(location);
-        }
+        if (!location) return;
+        await fetchWeather(location);
     });
 }
 

@@ -1,6 +1,6 @@
-export async function fetchData(location) {
+export async function fetchWeather(location) {
     try {
-        const responses = await fetch(
+        const response = await fetch(
             `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(location)}/next7days?unitGroup=metric&key=34VV9JAJ4E9GNYLGNTQP7KX8X&contentType=json`,
             {
                 method: "GET",
@@ -11,13 +11,13 @@ export async function fetchData(location) {
         );
 
         // Check if the response is OK (status in the range 200-299)
-        if (!responses.ok) {
-            throw new Error(`HTTP error! Status: ${responses.status}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
         // Parse the response body as JSON
-        const data = await responses.json();
-        console.log(responses);
+        const data = await response.json();
+        console.log(response);
         console.log(data);
 
         return data;
