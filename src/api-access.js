@@ -1,3 +1,5 @@
+// Fetches weather data from Visual Crossing API.
+
 export async function fetchWeather(location) {
     try {
         const response = await fetch(
@@ -16,11 +18,9 @@ export async function fetchWeather(location) {
         }
 
         // Parse the response body as JSON
-        const data = await response.json();
-        console.log(response);
-        console.log(data);
-
-        return data;
+        const weatherData = await response.json();
+        console.log({ response, weatherData });
+        return weatherData;
     } catch (err) {
         console.error(err);
         throw err;
