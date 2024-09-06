@@ -1,7 +1,7 @@
-export async function fetchData() {
+export async function fetchData(location) {
     try {
         const responses = await fetch(
-            "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Thessaloniki/next7days?unitGroup=metric&key=34VV9JAJ4E9GNYLGNTQP7KX8X&contentType=json",
+            `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(location)}/next7days?unitGroup=metric&key=34VV9JAJ4E9GNYLGNTQP7KX8X&contentType=json`,
             {
                 method: "GET",
                 headers: {
@@ -19,8 +19,11 @@ export async function fetchData() {
         const data = await responses.json();
         console.log(responses);
         console.log(data);
+
+        return data;
     } catch (err) {
         console.error(err);
+        throw err;
     }
 }
 
