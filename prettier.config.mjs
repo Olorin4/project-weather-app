@@ -8,11 +8,13 @@ const config = {
     trailingComma: "es5",
     tabWidth: 4,
     printWidth: 80,
+    proseWrap: "always",
     semi: true,
     singleQuote: false,
     quoteProps: "as-needed",
     bracketSpacing: true,
     arrowParens: "always",
+    endOfLine: "lf",
 };
 
 export default config;

@@ -5,6 +5,7 @@ import { fetchData } from "./api-access";
 let eslintTest = () => {
     return console.log("hello");
 };
+
 eslintTest();
 
 document.addEventListener("DOMContentLoaded", () => {
