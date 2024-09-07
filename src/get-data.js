@@ -11,7 +11,7 @@ export async function fetchWeather(location) {
         }
 
         const rawWeatherData = await response.json();
-        console.log({ response, rawWeatherData });
+        console.log(`Raw Weather Data:`, { response, rawWeatherData });
         return rawWeatherData;
     } catch (err) {
         console.error(err);

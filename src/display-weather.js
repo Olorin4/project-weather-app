@@ -3,31 +3,24 @@
 import { fetchWeather } from "./get-data";
 import { processWeatherData } from "./process-data";
 
-function getLocation() {
-    return new Promise((resolve) => {
-        const searchInput = document.querySelector(".search-bar");
-        searchInput.addEventListener("change", () => {
-            const location = searchInput.value.trim();
-            searchInput.value = "";
-            if (!location) return;
-            console.log(`User location: ${location}`);
-            resolve(location);
-        });
+export function getLocation() {
+    const searchInput = document.querySelector(".search-bar");
+    searchInput.addEventListener("change", () => {
+        const userLocation = searchInput.value.trim();
+        searchInput.value = "";
+        if (!userLocation) return;
+        console.log(`User location: ${userLocation}`);
+        displayWeather(userLocation);
     });
 }
 
-function renderLocation(location) {
-    const locationTitle = document.querySelector("h2");
-    locationTitle.textContent = location;
+function renderTitle(location) {
+    const title = document.querySelector("h2");
+    title.textContent = location;
 }
 
-export async function displayWeather() {
-    try {
-        const location = await getLocation();
-        const rawWeatherData = await fetchWeather(location);
-        processWeatherData(rawWeatherData);
-        renderLocation(location);
-    } catch (error) {
-        console.error("Error fetching weather data:", error);
-    }
+export async function displayWeather(userLocation) {
+    const rawWeatherData = await fetchWeather(userLocation);
+    const processedWeatherData = processWeatherData(rawWeatherData);
+    renderTitle(processedWeatherData.currentWeather.location);
 }

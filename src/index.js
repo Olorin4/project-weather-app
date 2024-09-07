@@ -2,12 +2,10 @@
 
 import "./normalize.css";
 import "./styles.css";
-import { displayWeather } from "./display-weather";
+import { getLocation } from "./display-weather";
 
 document.addEventListener("DOMContentLoaded", () => {
-    // renderLocation(location);
-    displayWeather();
-    // displayWeather(location);
+    getLocation();
 });
 
 // TO DO:

@@ -52,14 +52,14 @@ header {
     background-color: #e2e8f0;
     margin: 10px;
     display: grid;
-    grid-template-rows: 0.5fr 6fr 50px;
+    grid-template-rows: 1fr 2fr 2fr;
     gap: 10px;
 }
 
 .current-location {
     grid-row: 1;
     height: 100%;
-    background-color: #B9E0F3;
+    background-color: #b9e0f3;
 }
 
 .current-location > h2 {
@@ -67,11 +67,39 @@ header {
     text-align: center;
 }
 
-.weather-forecast{
+.weather-display {
     grid-row: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    height: 60%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
     align-items: center;
 }
 
+.current-weather-container {
+    grid-row: 1;
+}
+
+.weakly-forecast-container {
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: (7, 1fr);
+    grid-template-rows: 1fr 3fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.weakly-forecast-container > h4 {
+    grid-row: 1;
+    grid-column: 4;
+    width: 115px;
+    text-align: center;
+}
+
+.weather-card {
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

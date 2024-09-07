@@ -6,6 +6,7 @@ export function processWeatherData(rawData) {
 
     // Example of current weather information
     const currentWeather = {
+        date: days.datetime,
         location: resolvedAddress,
         timezone: timezone,
         temperature: currentConditions.temp,
@@ -31,6 +32,6 @@ export function processWeatherData(rawData) {
         currentWeather,
         weaklyForecast,
     };
-    console.log({ processedWeatherData });
+    console.log(`Processed Weather Data:`, processedWeatherData);
     return processedWeatherData;
 }
