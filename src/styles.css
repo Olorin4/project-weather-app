@@ -55,3 +55,23 @@ header {
     grid-template-rows: 0.5fr 6fr 50px;
     gap: 10px;
 }
+
+.current-location {
+    grid-row: 1;
+    height: 100%;
+    background-color: #B9E0F3;
+}
+
+.current-location > h2 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.weather-forecast{
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+

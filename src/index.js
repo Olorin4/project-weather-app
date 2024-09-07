@@ -1,19 +1,13 @@
+// index.js is the final entry point.
+
 import "./normalize.css";
 import "./styles.css";
-import { fetchWeather } from "./api-access";
-
-function getLocation() {
-    const searchInput = document.querySelector(".search-bar");
-    searchInput.addEventListener("change", () => {
-        const location = searchInput.value.trim();
-        if (!location) return;
-        fetchWeather(location);
-        searchInput.value = "";
-    });
-}
+import { getLocation } from "./displayWeather";
 
 document.addEventListener("DOMContentLoaded", () => {
     getLocation();
+    // renderLocation(location);
+    // displayWeather(location);
 });
 
 // TO DO:
