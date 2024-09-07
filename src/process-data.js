@@ -16,8 +16,8 @@ export function processWeatherData(rawData) {
         icon: currentConditions.icon, // Weather icon type
     };
 
-    // Example of daily forecast extraction (first day)
-    const dailyForecast = days.map((day) => {
+    // Example of weakly forecast extraction (first day)
+    const weaklyForecast = days.map((day) => {
         return {
             date: day.datetime,
             maxTemp: day.tempmax,
@@ -27,9 +27,10 @@ export function processWeatherData(rawData) {
         };
     });
 
-    // Return an object containing current weather and forecast
-    return {
+    const processedWeatherData = {
         currentWeather,
-        dailyForecast,
+        weaklyForecast,
     };
+    console.log({ processedWeatherData });
+    return processedWeatherData;
 }

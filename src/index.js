@@ -2,11 +2,11 @@
 
 import "./normalize.css";
 import "./styles.css";
-import { getLocation } from "./displayWeather";
+import { displayWeather } from "./display-weather";
 
 document.addEventListener("DOMContentLoaded", () => {
-    getLocation();
     // renderLocation(location);
+    displayWeather();
     // displayWeather(location);
 });
 
