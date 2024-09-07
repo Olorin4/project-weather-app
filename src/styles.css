@@ -18,8 +18,6 @@ header {
 }
 
 .search-wrapper {
-    position: relative;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,10 +25,6 @@ header {
 }
 
 .search-icon {
-    position: absolute;
-    left: 470px;
-    top: 50%;
-    transform: translateY(-50%);
     opacity: 0.3;
     width: 20px;
     height: 20px;

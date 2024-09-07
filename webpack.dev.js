@@ -8,9 +8,7 @@ module.exports = merge(common, {
     devServer: {
         static: "./dist",
         watchFiles: ["src/**/*"],
-    },
-    output: {
-        filename: "[name].bundle.js",
-        path: path.resolve(__dirname, "dist"),
+        hot: true,
+        open: true,
     },
 });
