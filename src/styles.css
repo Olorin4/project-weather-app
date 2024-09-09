@@ -80,9 +80,10 @@ header {
 }
 
 h3 {
-    height: max(25px, 4%);
+    height: max(20px, 5%);
     width: max(200px, 70%);
     text-align: center;
+    margin: 5px;
     border: 2px solid;
 }
 
@@ -91,7 +92,7 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: max(300px, 35%);
+    height: max(300px, 30%);
     width: max(300px, 95%);
 }
 
@@ -102,7 +103,7 @@ h3 {
     gap: 5px;
     justify-content: center;
     align-items: center;
-    height: max(400px, 55%);
+    height: max(400px, 60%);
     width: max(300px, 98%);
 }
 
