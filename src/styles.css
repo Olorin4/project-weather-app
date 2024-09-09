@@ -1,20 +1,20 @@
 body {
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: 80px 600px;
+    grid-template-rows: 80px 900px;
 }
 
 /* HEADER */
 
 header {
-    border-bottom: 2px solid transparent;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     grid-column: 2;
     grid-row: 1;
-    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom: 2px solid transparent;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
 }
 
 .search-wrapper {
@@ -49,15 +49,17 @@ header {
 
 .main-content {
     grid-column: 2;
-    background-color: #e2e8f0;
-    margin: 10px;
+    grid-row: 2;
     display: flex;
     flex-direction: column;
+    background-color: #e2e8f0;
+    height: 880px;
+    margin-top: 10px;
 }
 
 .current-location {
-    height: 45px;
-    background-color: #b9e0f3;
+    height: 50px;
+    background-color: skyblue;
     border: 2px solid;
 }
 
@@ -67,18 +69,19 @@ header {
 }
 
 .weather-display {
-    height: 95%;
-    margin: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 840px;
+    width: max(320px, 98%);
+    margin: 5px;
     border: 2px solid;
 }
 
 h3 {
-    width: 200px;
-    height: 35px;
+    height: max(25px, 4%);
+    width: max(200px, 70%);
     text-align: center;
     border: 2px solid;
 }
@@ -88,27 +91,52 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: min(250px, 50%);
-    padding: 5px;
+    height: max(300px, 35%);
+    width: max(300px, 95%);
 }
 
 .weakly-weather-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 5px;
     justify-content: center;
     align-items: center;
-    height: min(250px, 50%);
-    width: min(100px, 50%);
-    padding: 5px;
+    height: max(400px, 55%);
+    width: max(300px, 98%);
 }
 
 .weather-card {
-    grid-row: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 205px;
+    width: 145px;
     border: 2px solid;
+}
+
+.date-header {
+    display: grid;
+    grid-template-rows: 1;
+    grid-template-columns: 1fr 3fr;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    padding: 2px;
+}
+
+.daynumber {
+    grid-column: 1;
+    height: 100%;
+    width: 15px;
+    font-size: 2em;
+    text-align: center;
+}
+
+.day-and-month {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7em;
 }
