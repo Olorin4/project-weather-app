@@ -2,10 +2,19 @@
 
 import "./normalize.css";
 import "./styles.css";
-import { getLocation } from "./display-weather";
+import { displayWeather } from "./display-weather";
 
 document.addEventListener("DOMContentLoaded", () => {
-    getLocation();
+    (function getLocation() {
+        const searchInput = document.querySelector(".search-bar");
+        searchInput.addEventListener("change", () => {
+            const userLocation = searchInput.value.trim();
+            searchInput.value = "";
+            if (!userLocation) return;
+            console.log(`User location: ${userLocation}`);
+            displayWeather(userLocation);
+        });
+    })();
 });
 
 // TO DO:
