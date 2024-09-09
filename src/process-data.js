@@ -1,12 +1,11 @@
 // processWeather.js destructures raw weather data to an object with only the relevant weather data.
+import { format, parseISO, getDay, getDate, getMonth } from 'date-fns';
 
 export function processWeatherData(rawData) {
-    // Extract relevant data points
     const { resolvedAddress, timezone, currentConditions, days } = rawData;
 
-    // Example of current weather information
     const currentWeather = {
-        date: days.datetime,
+        date: days[0].datetime,
         location: resolvedAddress,
         timezone: timezone,
         temperature: currentConditions.temp,
@@ -14,10 +13,9 @@ export function processWeatherData(rawData) {
         humidity: currentConditions.humidity,
         description: currentConditions.conditions,
         windSpeed: currentConditions.windspeed,
-        icon: currentConditions.icon, // Weather icon type
+        icon: currentConditions.icon,
     };
 
-    // Example of weakly forecast extraction (first day)
     const weaklyForecast = days.map((day) => {
         return {
             date: day.datetime,

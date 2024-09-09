@@ -110,7 +110,7 @@ h3 {
 .weather-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     height: 205px;
     width: 145px;
@@ -125,6 +125,7 @@ h3 {
     align-items: center;
     height: 35px;
     padding: 2px;
+    border: 2px dotted;
 }
 
 .daynumber {
@@ -133,6 +134,7 @@ h3 {
     width: 15px;
     font-size: 2em;
     text-align: center;
+    border: 2px dotted;
 }
 
 .day-and-month {
@@ -140,4 +142,9 @@ h3 {
     display: flex;
     flex-direction: column;
     font-size: 0.7em;
+}
+
+.weather-data {
+    display: grid;
+    border: 2px dotted;
 }
