@@ -30,18 +30,18 @@ function createDateHeader(day, container, data) {
     container.appendChild(dateHeader);
     const dayNumber = document.createElement("div");
     dayNumber.classList.add("daynumber");
-    dayNumber.textContent = data.date.split("-")[2];
+    dayNumber.textContent = data.dayNumber;
     dateHeader.appendChild(dayNumber);
     const dayAndMonth = document.createElement("div");
     dayAndMonth.classList.add("day-and-month");
     dateHeader.appendChild(dayAndMonth);
     const month = document.createElement("div");
     month.classList.add("month");
-    month.textContent = data.date;
+    month.textContent = data.monthName;
     dayAndMonth.appendChild(month);
     const dayName = document.createElement("div");
     dayName.classList.add("dayname");
-    dayName.textContent = data.date;
+    dayName.textContent = data.dayName;
     dayAndMonth.appendChild(dayName);
 }
 
@@ -50,21 +50,22 @@ function displayWeatherData(day, container, data) {
     weatherData.classList.add("weather-data");
     container.appendChild(weatherData);
     const weatherIcon = document.createElement("img");
-    weatherIcon.src = "";
-    weatherIcon.alt = "weather icon";
+    weatherIcon.src = `https://raw.githubusercontent.com/visualcrossing/WeatherIcons/58c79610addf3d4d91471abbb95b05e96fb43019/SVG/1st%20Set%20-%20Color/${data.icon}.svg`;
+    weatherIcon.alt = data.description || "weather icon";
     weatherData.appendChild(weatherIcon);
     if (data.temperature) {
         const currentTemp = document.createElement("div");
         currentTemp.classList.add("current-temp");
-        currentTemp.textContent = data.temperature;
+        currentTemp.textContent = `${data.temperature}°C`;
         weatherData.appendChild(currentTemp);
     }
     const maxtemp = document.createElement("div");
     maxtemp.classList.add("maxtemp");
-    maxtemp.textContent = data.tempmax;
+    maxtemp.textContent = `Max: ${data.maxTemp}°C`;
     weatherData.appendChild(maxtemp);
     const mintemp = document.createElement("div");
     mintemp.classList.add("mintemp");
+    mintemp.textContent = `Min: ${data.minTemp}°C`;
     weatherData.appendChild(mintemp);
 }
 
@@ -86,7 +87,6 @@ export async function displayWeather(userLocation) {
     const rawWeatherData = await fetchWeather(userLocation);
     const processedWeatherData = processWeatherData(rawWeatherData);
     renderTitle(processedWeatherData.currentWeather.location);
-    console.log(processedWeatherData.currentWeather.date);
     renderCurrentWeather(processedWeatherData.currentWeather);
     renderWeaklyWeather(processedWeatherData.weaklyForecast);
 }
