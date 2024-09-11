@@ -1,6 +1,13 @@
 .dropdown {
     position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span {
+    font-weight: 800;
+    font-size: 1.1em;
 }
 
 .dropdown-button {
@@ -10,8 +17,9 @@
 }
 
 .dropdown-icon {
-    width: 24px;
-    height: 24px;
+    width: 25px;
+    height: 25px;
+    margin-top: 8px;
 }
 
 .dropdown-list {

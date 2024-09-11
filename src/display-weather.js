@@ -16,6 +16,11 @@ function createHeader(text, container) {
     weatherDisplay.insertBefore(header, container);
 }
 
+function createDropdownMenu() {
+    const weatherDisplay = document.querySelector(".weather-display");
+    initDropdownMenu(weatherDisplay);
+}
+
 function createWeatherCard(day, container, data) {
     const weatherCard = document.createElement("div");
     weatherCard.classList.add("weather-card");
@@ -50,7 +55,7 @@ function createDateHeader(day, container, data) {
 function displayWeatherIcon(container, data) {
     const weatherIcon = document.createElement("img");
     weatherIcon.src = `https://raw.githubusercontent.com/visualcrossing/WeatherIcons/58c79610addf3d4d91471abbb95b05e96fb43019/SVG/1st%20Set%20-%20Color/${data.icon}.svg`;
-    weatherIcon.alt = data.description || "weather icon";
+    weatherIcon.alt = data.description;
     weatherIcon.classList.add("weather-icon");
     container.appendChild(weatherIcon);
 }
@@ -78,7 +83,6 @@ function displayWeatherData(day, container, data) {
 function renderCurrentWeather(data) {
     const currentWeatherContainer = document.querySelector(".current-weather-container");
     createHeader("Today's Weather", currentWeatherContainer);
-    initDropdownMenu(currentWeatherContainer);
     createWeatherCard(1, currentWeatherContainer, data);
 }
 
@@ -90,7 +94,15 @@ function renderWeaklyWeather(data) {
     }
 }
 
+function clearWeatherDisplay() {
+    const currentWeatherContainer = document.querySelector(".current-weather-container");
+    const weaklyWeatherContainer = document.querySelector(".weakly-weather-container");
+    currentWeatherContainer.innerHTML = "";
+    weaklyWeatherContainer.innerHTML = "";
+}
+
 export async function displayWeather(userLocation) {
+    clearWeatherDisplay();
     const rawWeatherData = await fetchWeather(userLocation);
     const processedWeatherData = processWeatherData(rawWeatherData);
     renderTitle(processedWeatherData.currentWeather.location);

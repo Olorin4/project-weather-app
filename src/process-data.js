@@ -16,6 +16,7 @@ export function processWeatherData(rawData) {
     const currentWeather = {
         date: days[0].datetime,
         location: resolvedAddress,
+        timezone: timezone,
         temperature: currentConditions.temp,
         maxTemp: days[0].tempmax,
         minTemp: days[0].tempmin,
