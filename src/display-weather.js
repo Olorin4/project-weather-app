@@ -10,15 +10,9 @@ function renderTitle(location) {
 }
 
 function createHeader(text, container) {
-    const weatherDisplay = document.querySelector(".weather-display");
     const header = document.createElement("h3");
     header.textContent = `${text}`;
-    weatherDisplay.insertBefore(header, container);
-}
-
-function createDropdownMenu() {
-    const weatherDisplay = document.querySelector(".weather-display");
-    initDropdownMenu(weatherDisplay);
+    container.appendChild(header);
 }
 
 function createWeatherCard(day, container, data) {
@@ -83,14 +77,21 @@ function displayWeatherData(day, container, data) {
 function renderCurrentWeather(data) {
     const currentWeatherContainer = document.querySelector(".current-weather-container");
     createHeader("Today's Weather", currentWeatherContainer);
-    createWeatherCard(1, currentWeatherContainer, data);
+    const currentWeatherCards = document.createElement("div");
+    currentWeatherCards.classList.add("current-weather-cards");
+    currentWeatherContainer.appendChild(currentWeatherCards);
+    createWeatherCard(1, currentWeatherCards, data);
+    initDropdownMenu(currentWeatherCards);
 }
 
 function renderWeaklyWeather(data) {
     const weaklyWeatherContainer = document.querySelector(".weakly-weather-container");
     createHeader("Weakly Forecast", weaklyWeatherContainer);
+    const weaklyWeatherCards = document.createElement("div");
+    weaklyWeatherCards.classList.add("weakly-weather-cards");
+    weaklyWeatherContainer.appendChild(weaklyWeatherCards);
     for (let day = 1; day <= 6; day++) {
-        createWeatherCard(day, weaklyWeatherContainer, data[day]);
+        createWeatherCard(day, weaklyWeatherCards, data[day]);
     }
 }
 

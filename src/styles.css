@@ -82,26 +82,46 @@ h3 {
     width: max(200px, 70%);
     text-align: center;
     margin: 5px;
+    padding: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .current-weather-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: max(300px, 30%);
+    width: max(300px, 95%);
+}
+
+.current-weather-cards {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     height: max(300px, 30%);
     width: max(300px, 95%);
 }
-
 .weakly-weather-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: max(400px, 60%);
+    width: max(300px, 98%);
+}
+
+.weakly-weather-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 5px;
     justify-content: center;
     align-items: center;
     background-color: #e2e8f0;
+    padding: 2px;
     height: max(400px, 60%);
     width: max(300px, 98%);
-    padding: 2px;
 }
 
 .weather-card {
