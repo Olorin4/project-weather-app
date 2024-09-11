@@ -2,23 +2,25 @@
 
 import "./normalize.css";
 import "./styles.css";
-import { displayWeather } from "./display-weather";
+import { toggleLoading, displayWeather } from "./display-weather";
+
+function getLocation() {
+    const searchInput = document.querySelector(".search-bar");
+    searchInput.addEventListener("change", () => {
+        const userLocation = searchInput.value.trim();
+        searchInput.value = "";
+        if (!userLocation) return;
+        console.log(`User location: ${userLocation}`);
+        toggleLoading();
+        displayWeather(userLocation).finally(() => toggleLoading());
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    (function getLocation() {
-        const searchInput = document.querySelector(".search-bar");
-        searchInput.addEventListener("change", () => {
-            const userLocation = searchInput.value.trim();
-            searchInput.value = "";
-            if (!userLocation) return;
-            console.log(`User location: ${userLocation}`);
-            displayWeather(userLocation);
-        });
-    })();
+    getLocation();
 });
 
 // TO DO:
 // - Change page background based on the data (use Giphy API).
-// - Add styling.
-// - Optional: add a ‘loading’ component.
+// - Refine styling.
 // - Add wind and rain level.
