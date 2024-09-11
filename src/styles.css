@@ -96,9 +96,6 @@ h3 {
     font-weight: bold;
 }
 .current-weather-cards {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     height: max(300px, 30%);
     width: max(300px, 95%);
 }
@@ -114,7 +111,7 @@ h3 {
 
 .weakly-weather-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
     gap: 5px;
     justify-content: center;
     align-items: center;

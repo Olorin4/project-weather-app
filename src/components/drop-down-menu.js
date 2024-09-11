@@ -53,9 +53,3 @@ export function initDropdownMenu(element) {
         }
     });
 }
-
-// Testing
-document.addEventListener("DOMContentLoaded", function () {
-    const body = document.querySelector("body");
-    initDropdownMenu(body);
-});
