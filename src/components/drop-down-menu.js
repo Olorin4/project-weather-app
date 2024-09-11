@@ -1,7 +1,7 @@
 import "./drop-down-menu.css";
 import dotSVG from "./dropdown-menu.svg";
 
-export function initDropdownMenu(element) {
+export function initDropdownMenu(element, updateTemperatures) {
     const dropdown = document.createElement("div");
     dropdown.classList.add("dropdown");
     element.appendChild(dropdown);
@@ -24,20 +24,28 @@ export function initDropdownMenu(element) {
     dropdownList.classList.add("dropdown-list");
     dropdown.appendChild(dropdownList);
 
-    const dropdownItem1 = document.createElement("li");
-    dropdownItem1.classList.add("dropdown-item");
-    dropdownList.appendChild(dropdownItem1);
+    const dropdownItemFahrenheit = document.createElement("li");
+    dropdownItemFahrenheit.classList.add("dropdown-item");
+    dropdownList.appendChild(dropdownItemFahrenheit);
 
-    const dropdownItem2 = document.createElement("li");
-    dropdownItem2.classList.add("dropdown-item");
-    dropdownList.appendChild(dropdownItem2);
+    const dropdownItemCelsius = document.createElement("li");
+    dropdownItemCelsius.classList.add("dropdown-item");
+    dropdownList.appendChild(dropdownItemCelsius);
 
-    const dropdownItem3 = document.createElement("li");
-    dropdownItem3.classList.add("dropdown-item");
-    dropdownList.appendChild(dropdownItem3);
+    dropdownItemFahrenheit.textContent = "°F";
+    dropdownItemCelsius.textContent = "°C)";
 
-    dropdownItem1.textContent = "°F";
-    dropdownItem2.textContent = "°C)";
+    // Convert to Fahrenheit on click
+    dropdownItemFahrenheit.addEventListener("click", function () {
+        updateTemperatures("F");
+        dropdownList.classList.remove("visible");
+    });
+
+    // Convert to Celsius on click
+    dropdownItemCelsius.addEventListener("click", function () {
+        updateTemperatures("C");
+        dropdownList.classList.remove("visible");
+    });
 
     // Toggle dropdown visibility
     dropdownButton.addEventListener("click", function () {

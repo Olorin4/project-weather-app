@@ -3,6 +3,19 @@
 import { fetchWeather } from "./get-data";
 import { processWeatherData } from "./process-data";
 import { initDropdownMenu } from "./components/drop-down-menu";
+import { convertTemperature } from "./process-data";
+
+function updateTemperatures(unit) {
+    const tempElements = document.querySelectorAll(".current-temp, .maxtemp, .mintemp");
+    tempElements.forEach((element) => {
+        const tempValue = parseFloat(element.textContent);
+        if (unit === "F" && !element.textContent.includes("°F")) {
+            element.textContent = `${convertTemperature(tempValue, "F")}°F`;
+        } else if (unit === "C" && !element.textContent.includes("°C")) {
+            element.textContent = `${convertTemperature(tempValue, "C")}°C`;
+        }
+    });
+}
 
 function renderTitle(location) {
     const title = document.querySelector("h2");
@@ -66,11 +79,11 @@ function displayWeatherData(day, container, data) {
     }
     const maxtemp = document.createElement("div");
     maxtemp.classList.add("maxtemp");
-    maxtemp.textContent = `Max: ${data.maxTemp}°C`;
+    maxtemp.textContent = `${data.maxTemp}°C`;
     weatherData.appendChild(maxtemp);
     const mintemp = document.createElement("div");
     mintemp.classList.add("mintemp");
-    mintemp.textContent = `Min: ${data.minTemp}°C`;
+    mintemp.textContent = `${data.minTemp}°C`;
     weatherData.appendChild(mintemp);
 }
 
@@ -81,7 +94,7 @@ function renderCurrentWeather(data) {
     currentWeatherCards.classList.add("current-weather-cards");
     currentWeatherContainer.appendChild(currentWeatherCards);
     createWeatherCard(1, currentWeatherCards, data);
-    initDropdownMenu(currentWeatherCards);
+    initDropdownMenu(currentWeatherCards, updateTemperatures);
 }
 
 function renderWeaklyWeather(data) {

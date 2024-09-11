@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // TO DO:
-// - Toggle display of the data in Fahrenheit or Celsius.
-// - Change the look of the page based on the data (maybe use Giphy API).
+// - Change page background based on the data (use Giphy API).
 // - Add styling.
 // - Optional: add a ‘loading’ component.
+// - Add wind and rain level.

@@ -17,12 +17,12 @@ export function processWeatherData(rawData) {
         date: days[0].datetime,
         location: resolvedAddress,
         timezone: timezone,
-        temperature: currentConditions.temp,
-        maxTemp: days[0].tempmax,
-        minTemp: days[0].tempmin,
-        humidity: currentConditions.humidity,
+        temperature: Math.round(currentConditions.temp),
+        maxTemp: Math.round(days[0].tempmax),
+        minTemp: Math.round(days[0].tempmin),
+        humidity: Math.round(currentConditions.humidity),
         description: currentConditions.conditions,
-        windSpeed: currentConditions.windspeed,
+        windSpeed: Math.round(currentConditions.windspeed),
         icon: currentConditions.icon,
         ...parseDate(days[0].datetime),
     };
@@ -30,8 +30,8 @@ export function processWeatherData(rawData) {
     const weaklyForecast = days.map((day) => {
         return {
             date: day.datetime,
-            maxTemp: day.tempmax,
-            minTemp: day.tempmin,
+            maxTemp: Math.round(day.tempmax),
+            minTemp: Math.round(day.tempmin),
             description: day.conditions,
             icon: day.icon,
             ...parseDate(day.datetime),
@@ -44,4 +44,16 @@ export function processWeatherData(rawData) {
     };
     console.log(`Processed Weather Data:`, processedWeatherData);
     return processedWeatherData;
+}
+
+// Utility function to convert temperature
+export function convertTemperature(temp, convertTo) {
+    if (convertTo === "C") {
+        // Convert from Fahrenheit to Celsius
+        return Math.round(((temp - 32) * 5) / 9);
+    } else if (convertTo === "F") {
+        // Convert from Celsius to Fahrenheit
+        return Math.round((temp * 9) / 5 + 32);
+    }
+    return temp;
 }

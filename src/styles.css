@@ -95,6 +95,7 @@ h3 {
     font-size: 1.5em;
     font-weight: bold;
 }
+
 .current-weather-cards {
     height: max(300px, 30%);
     width: max(300px, 95%);
@@ -176,7 +177,25 @@ h3 {
 .weather-data {
     display: grid;
     height: 50px;
-    border: 2px dotted;
+}
+
+.current-temp {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.maxtemp,
+.mintemp {
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.maxtemp {
+    color: red;
+}
+
+.mintemp {
+    color: blue;
 }
 
 .current-weather-container .weather-card {
