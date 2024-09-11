@@ -1,20 +1,21 @@
 body {
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: 80px 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* HEADER */
 
 header {
-    grid-column: 2;
-    grid-row: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 35px;
+    width: max(325px, 60%);
+    padding: 7px 0;
     border-bottom: 2px solid transparent;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    padding: 10px;
 }
 
 .search-wrapper {
@@ -32,39 +33,35 @@ header {
 }
 
 .search-bar {
+    width: 70%;
+    height: 35px;
     background-color: #e2e8f0;
     border: none;
     border-radius: 15px;
-    width: 70%;
-    height: 35px;
-}
-
-/* DASHBOARD */
-
-.dashboard {
-    grid-column: 1;
 }
 
 /* MAIN CONTENT */
 
 .main-content {
-    grid-column: 2;
-    grid-row: 2;
     display: flex;
     flex-direction: column;
-    background-color: #e2e8f0;
-    height: 880px;
-    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    width: max(320px, 60%);
 }
 
 .current-location {
-    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: max(320px, 100%);
     background-color: skyblue;
-    border: 2px solid;
+    margin-top: 10px;
 }
 
 .current-location > h2 {
-    font-size: 1.5em;
+    font-size: 2.5vw;
     text-align: center;
 }
 
@@ -73,10 +70,11 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 840px;
-    width: max(320px, 98%);
+    background-color: #e2e8f0;
+    height: auto;
+    width: max(300px, 98.5%);
     margin: 5px;
-    border: 2px solid;
+    padding: 5px;
 }
 
 h3 {
@@ -84,7 +82,6 @@ h3 {
     width: max(200px, 70%);
     text-align: center;
     margin: 5px;
-    border: 2px solid;
 }
 
 .current-weather-container {
@@ -98,13 +95,14 @@ h3 {
 
 .weakly-weather-container {
     display: grid;
-    grid-template-rows: 1fr 1fr;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 5px;
     justify-content: center;
     align-items: center;
+    background-color: #e2e8f0;
     height: max(400px, 60%);
     width: max(300px, 98%);
+    padding: 2px;
 }
 
 .weather-card {
@@ -114,7 +112,11 @@ h3 {
     align-items: center;
     height: 205px;
     width: 145px;
-    border: 2px solid;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 5px;
+    border-bottom: 2px solid transparent;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .date-header {
@@ -124,27 +126,44 @@ h3 {
     justify-content: center;
     align-items: center;
     height: 35px;
-    padding: 2px;
-    border: 2px dotted;
+    width: 125px;
+    padding-bottom: 5px;
+    border-bottom: 2px dotted;
 }
 
 .daynumber {
     grid-column: 1;
     height: 100%;
-    width: 15px;
+    width: 35px;
     font-size: 2em;
-    text-align: center;
-    border: 2px dotted;
+    font-weight: 900;
 }
 
 .day-and-month {
     grid-column: 2;
     display: flex;
     flex-direction: column;
-    font-size: 0.7em;
+    width: 90px;
+}
+
+.dayname {
+    font-weight: 800;
+    font-size: 1.1em;
+}
+
+.weather-icon {
+    height: 90px;
+    width: 125px;
+    padding: 3px;
 }
 
 .weather-data {
     display: grid;
+    height: 50px;
     border: 2px dotted;
+}
+
+.current-weather-container .weather-card {
+    height: 215px;
+    width: 250px;
 }

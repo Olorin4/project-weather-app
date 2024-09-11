@@ -2,6 +2,7 @@
 //  renders weather data in the main content section.
 import { fetchWeather } from "./get-data";
 import { processWeatherData } from "./process-data";
+import { initDropdownMenu } from "./components/drop-down-menu";
 
 function renderTitle(location) {
     const title = document.querySelector("h2");
@@ -21,6 +22,7 @@ function createWeatherCard(day, container, data) {
     weatherCard.dataset.day = `${day}`;
     container.appendChild(weatherCard);
     createDateHeader(day, weatherCard, data);
+    displayWeatherIcon(weatherCard, data);
     displayWeatherData(day, weatherCard, data);
 }
 
@@ -45,14 +47,18 @@ function createDateHeader(day, container, data) {
     dayAndMonth.appendChild(dayName);
 }
 
+function displayWeatherIcon(container, data) {
+    const weatherIcon = document.createElement("img");
+    weatherIcon.src = `https://raw.githubusercontent.com/visualcrossing/WeatherIcons/58c79610addf3d4d91471abbb95b05e96fb43019/SVG/1st%20Set%20-%20Color/${data.icon}.svg`;
+    weatherIcon.alt = data.description || "weather icon";
+    weatherIcon.classList.add("weather-icon");
+    container.appendChild(weatherIcon);
+}
+
 function displayWeatherData(day, container, data) {
     const weatherData = document.createElement("div");
     weatherData.classList.add("weather-data");
     container.appendChild(weatherData);
-    const weatherIcon = document.createElement("img");
-    weatherIcon.src = `https://raw.githubusercontent.com/visualcrossing/WeatherIcons/58c79610addf3d4d91471abbb95b05e96fb43019/SVG/1st%20Set%20-%20Color/${data.icon}.svg`;
-    weatherIcon.alt = data.description || "weather icon";
-    weatherData.appendChild(weatherIcon);
     if (data.temperature) {
         const currentTemp = document.createElement("div");
         currentTemp.classList.add("current-temp");
@@ -72,13 +78,14 @@ function displayWeatherData(day, container, data) {
 function renderCurrentWeather(data) {
     const currentWeatherContainer = document.querySelector(".current-weather-container");
     createHeader("Today's Weather", currentWeatherContainer);
+    initDropdownMenu(currentWeatherContainer);
     createWeatherCard(1, currentWeatherContainer, data);
 }
 
 function renderWeaklyWeather(data) {
     const weaklyWeatherContainer = document.querySelector(".weakly-weather-container");
     createHeader("Weakly Forecast", weaklyWeatherContainer);
-    for (let day = 1; day <= 7; day++) {
+    for (let day = 1; day <= 6; day++) {
         createWeatherCard(day, weaklyWeatherContainer, data[day]);
     }
 }
